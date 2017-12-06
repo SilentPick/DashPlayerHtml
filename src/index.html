@@ -1,12 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>webpack starterkit</title>
+    <script src="scripts/index.js"></script>
+    <link href="styles/index.css" rel="stylesheet">
+    <script src="https://cdn.dashjs.org/latest/dash.all.min.js" async></script>
 </head>
 <body>
+<div class="hide" width="550" height="310">
+    <div class="video_player_box">
+        <video id="my_video" data-dashjs-player autoplay   src="https://bitmovin-a.akamaihd.net/content/playhouse-vr/mpds/105560.mpd"
+               width="550" height="310" ></video>
+        <div id="video_controls_bar">
+            <button id="playPauseBtn">Pause</button>
+            <input id="seekSlider" type="range" min="0" max="100" value="0" step="1">
+            <span id="curTimeText">00:00</span> / <span id="durTimeText">00:00</span>
+            <button id="muteBtn">Mute</button>
+            <input id="volumeSlider" type="range" min="0" max="100" value="100" step="1">
+            <button id="fullScreenBtn">[ ]</button>
+        </div>
 
-<h1>yet another webpack starterkit!!11!</h1>
+    </div>
+</div>
 
+<div class="unsupported">
+    <h1>Здесь может быть что угодно. <br> P.S. Этот браузер не поддерживает данный формат видео.</h1>
+</div>
 </body>
 </html>
