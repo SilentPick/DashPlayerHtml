@@ -1,3 +1,95 @@
+.fullScreen.is-full .fa-compress {
+    display: none;
+}
+
+.fullScreen .fa-compress {
+    display: block;
+    margin-top: 2px;
+    cursor: pointer;
+}
+
+.fullScreen.is-full .fa-expand {
+    display: block;
+    margin-top: 2px;
+    cursor: pointer;
+}
+
+.fullScreen .fa-expand {
+    display: none;
+}
+
+.playPauseBtn.is-play .fa-play-circle {
+    display: none;
+}
+
+.playPauseBtn .fa-play-circle {
+    display: block;
+    margin-top: 2px;
+    cursor: pointer;
+}
+
+.playPauseBtn.is-play .fa-pause {
+    display: block;
+    margin-top: 2px;
+    cursor: pointer;
+}
+
+.playPauseBtn .fa-pause {
+    display: none;
+}
+
+.muteUnmuteBtn.is-mute .fa-volume-up {
+    display: block;
+    margin-left: 10px;
+    margin-top: 2px;
+    cursor: pointer;
+}
+
+.muteUnmuteBtn .fa-volume-up {
+    display: none;
+}
+
+.muteUnmuteBtn.is-mute .fa-volume-off {
+    display: none;
+}
+
+.muteUnmuteBtn .fa-volume-off {
+    display: block;
+    margin-left: 10px;
+    margin-top: 2px;
+    cursor: pointer;
+}
+
+#curTimeText {
+    margin-top: 2px;
+}
+
+#durTimeText {
+    margin-top: 2px;
+}
+
+input[type='range'] {
+    -webkit-appearance: none !important;
+    background: #666;
+    height: 4px;
+    margin-top: 8px;
+}
+
+input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none !important;
+    background: #FFF;
+    height: 15px;
+    width: 15px;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.muteUnmuteBtn {
+    height: 12px;
+    width: 12px;
+    text-align: center;
+}
+
 #video_controls_bar {
     background: #333;
     padding: 10px;
@@ -10,27 +102,28 @@
     position: absolute;
 }
 
-video{
+video {
     position: absolute;
-    bottom: 0;
     left: 0;
-    right: 0;
     top: 0;
+    width: 100%;
+    height: 100%;
 }
 
 input#seekSlider {
-
+    margin-left: 10px;
+    margin-right: 10px;
     flex-grow: 1;
 }
 
 input#volumeSlider {
     width: 80px;
+    margin-left: 20px;
+    margin-right: 10px;
 }
-
 
 .unsupported {
     display: none;
-
 }
 
 .unsupported.is-show {
@@ -41,16 +134,15 @@ input#volumeSlider {
     text-align: center;
     margin: 0px auto;
     border-radius: 25px;
-
 }
 
 .video_player_box {
-    width: 550px;
+    width: 100%;
     background: #000;
     margin: 0px auto;
     display: block;
     position: relative;
-    height: 400px;
+    height: 100%;
 }
 
 .video_player_box.is-hide {
@@ -61,3 +153,9 @@ video::-webkit-media-controls-enclosure {
     display:none !important;
 }
 
+.hide {
+    width: 550px;
+    height: 310px;
+    position: relative;
+    margin: 0 auto;
+}

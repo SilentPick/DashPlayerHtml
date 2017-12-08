@@ -1,29 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <script src="scripts/index.js"></script>
     <link href="styles/index.css" rel="stylesheet">
-    <script src="https://cdn.dashjs.org/latest/dash.all.min.js" async></script>
+    <script src="https://cdn.dashjs.org/latest/dash.all.min.js" async ></script>
 </head>
 <body>
-<div class="hide" width="550" height="310">
+<div class="hide">
     <div class="video_player_box">
-        <video id="my_video" data-dashjs-player autoplay   src="https://bitmovin-a.akamaihd.net/content/playhouse-vr/mpds/105560.mpd"
-               width="550" height="310" ></video>
+        <video id="my_video" data-dashjs-player autoplay src="https://bitmovin-a.akamaihd.net/content/playhouse-vr/mpds/105560.mpd"
+               width="550" height="310"></video>
         <div id="video_controls_bar">
-            <button id="playPauseBtn">Pause</button>
-            <input id="seekSlider" type="range" min="0" max="100" value="0" step="1">
-            <span id="curTimeText">00:00</span> / <span id="durTimeText">00:00</span>
-            <button id="muteBtn">Mute</button>
-            <input id="volumeSlider" type="range" min="0" max="100" value="100" step="1">
-            <button id="fullScreenBtn">[ ]</button>
+            <div class="playPauseBtn is-play">
+                <i class="fa fa-play-circle" aria-hidden="true"></i>
+                <i class="fa fa-pause" aria-hidden="true"></i>
+            </div>
+            <input id="seekSlider" type="range" min="0" max="100" value="0" step="0.1">
+            <span id="curTimeText">00:00 </span> | <span id="durTimeText"> 00:00</span>
+            <div class="muteUnmuteBtn is-mute">
+                <i class="fa fa-volume-up" aria-hidden="true"></i>
+                <i class="fa fa-volume-off" aria-hidden="true"></i>
+            </div>
+            <input id="volumeSlider" type="range" min="0" max="100" value="100" step="0.1">
+            <div class="fullScreen is-full">
+                <i class="fa fa-expand" aria-hidden="true"></i>
+                <i class="fa fa-compress" aria-hidden="true"></i>
+            </div>
         </div>
-
     </div>
-</div>
-
-<div class="unsupported">
-    <h1>Здесь может быть что угодно. <br> P.S. Этот браузер не поддерживает данный формат видео.</h1>
-</div>
+    <div class="unsupported">
+        <h1>Здесь может быть что угодно. <br> P.S. Этот браузер не поддерживает данный формат видео.</h1>
+    </div>
+    </div>
 </body>
 </html>
