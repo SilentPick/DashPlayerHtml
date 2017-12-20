@@ -1,21 +1,25 @@
 import '../styles/index.css';
+import Hls from 'hls.js';
 
-let vid, playPauseBtn, seekSlider, curTimeText, durTimeText,  muteUnmuteBtn, fullScreen, volumeSlider;
+let vid, playPauseBtn, BtnFormatDashDOM, BtnFormatHlsDOM, seekSlider, curTimeText, durTimeText,  muteUnmuteBtn, fullScreen, jsFormatHls, jsFormatDash,  volumeSlider;
 let isVideoNowFullscreen = false;
 
 const video_player_box = document.querySelector(".video_player_box");
 
 function intializePlayer() {
-    if (typeof (window.MediaSource || window.WebKitMediaSource) === "function") {
+    if (Hls.isSupported() || typeof (window.MediaSource || window.WebKitMediaSource) === "function") {
         playPauseBtn = document.querySelector(".playPauseBtn");
         muteUnmuteBtn = document.querySelector(".muteUnmuteBtn");
         fullScreen = document.querySelector(".fullScreen");
-
-        vid = document.getElementById("my_video");
-        seekSlider = document.getElementById("seekSlider");
-        curTimeText = document.getElementById("curTimeText");
-        durTimeText = document.getElementById("durTimeText");
-        volumeSlider = document.getElementById("volumeSlider");
+        vid = document.querySelector(".my_video");
+        seekSlider = document.querySelector(".seekSlider");
+        curTimeText = document.querySelector(".curTimeText");
+        durTimeText = document.querySelector(".durTimeText");
+        volumeSlider = document.querySelector(".volumeSlider");
+        BtnFormatDashDOM = document.querySelector(".BtnFormatDash");
+        jsFormatDash = document.querySelector(".jsFormatDash");
+        jsFormatHls = document.querySelector(".jsFormatHls")
+        BtnFormatHlsDOM = document.querySelector(".BtnFormatHls");
 
         playPauseBtn.addEventListener("click", playPause, false);
         seekSlider.addEventListener("change", vidSeek, false);
@@ -23,6 +27,17 @@ function intializePlayer() {
         muteUnmuteBtn.addEventListener("click", vidMute, false);
         volumeSlider.addEventListener("change", setVolume, false);
         fullScreen.addEventListener("click", toggleFullScreen, false);
+        BtnFormatDashDOM.addEventListener("click", BtnFormatDash, false);
+        BtnFormatHlsDOM.addEventListener("click", BtnFormatHls, false);
+
+        let video = document.querySelector('jsFormatHls video');
+        let hls = new Hls();
+        hls.loadSource('https://video-dev.github.io/streams/x36xhzz/x36xhzz.m3u8');
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED,function() {
+            video.play();
+        });
+
     } else {
         const unsupportedDOM = document.querySelector(".unsupported");
         unsupportedDOM.classList.add("is-show");
@@ -45,6 +60,18 @@ function playPause() {
 function vidSeek() {
     let seekto = vid.duration * (seekSlider.value / 100);
     vid.currentTime = seekto;
+}
+
+function BtnFormatDash() {
+    console.log('function BtnFormatDash called')
+    video_player_box.classList.add("is-hide");
+    jsFormatDash.classList.remove("is-hide");
+}
+
+function BtnFormatHls() {
+    debugger
+    video_player_box.classList.remove("is-hide");
+    jsFormatHls.classList.add("is-hide");
 }
 
 function seekTimeUpdate() {
