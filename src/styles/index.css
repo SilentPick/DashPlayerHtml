@@ -1,3 +1,9 @@
+.something{
+    margin-top: 2px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
 .fullScreen.is-full .fa-compress {
     display: none;
 }
@@ -149,8 +155,16 @@ video {
     display: none;
 }
 
+.BtnFormatDash.is-hide{
+    display: none;
+}
+
+.BtnFormatHls.is-hide{
+    display: none;
+}
+
 video::-webkit-media-controls-enclosure {
-    display:none !important;
+    display: none !important;
 }
 
 .hide {
